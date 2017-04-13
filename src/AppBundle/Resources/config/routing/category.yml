@@ -1,0 +1,4 @@
+category_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Category:show" }
+    methods:  GET

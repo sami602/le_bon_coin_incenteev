@@ -1,0 +1,4 @@
+localisation_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Localisation:show" }
+    methods:  GET
