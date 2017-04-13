@@ -1,0 +1,18 @@
+# src/AppBundle/Resources/config/doctrine/Localisation.orm.yml
+AppBundle\Entity\Localisation:
+  type: entity
+  table: localisation
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    city:
+      type: string
+      length: 255
+      unique: true
+
+  oneToMany:
+    publications:
+      targetEntity: Publication
+      mappedBy: localisation

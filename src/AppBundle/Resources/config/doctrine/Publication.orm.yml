@@ -1,0 +1,61 @@
+# src/AppBundle/Resources/config/doctrine/Publication.orm.yml
+AppBundle\Entity\Publication:
+  type: entity
+  table: publication
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    is_an_offer:
+      type: boolean
+    is_a_proffesional:
+      type: boolean
+      nullable: true
+    title:
+      type: string
+      length: 255
+    description:
+          type: text
+    price:
+      type: integer
+    token:
+      type: string
+      length: 255
+      unique: true
+    is_public:
+      type: boolean
+      nullable: true
+    is_activated:
+      type: boolean
+      nullable: true
+    email:
+      type: string
+      length: 255
+    phone:
+      type: string
+      length: 255
+      nullable: true
+    expires_at:
+      type: datetime
+    created_at:
+      type: datetime
+    updated_at:
+      type: datetime
+      nullable: true
+  manyToOne:
+    category:
+      targetEntity: Category
+      inversedBy: publications
+      joinColumn:
+        name: category_id
+        referencedColumnName: id
+    localisation:
+      targetEntity: Localisation
+      inversedBy: publications
+      joinColumn:
+        name: localisation_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: [ setCreatedAtValue, setExpiresAtValue, setTokenValue ]
+    preUpdate: [ setUpdatedAtValue ]

@@ -1,0 +1,17 @@
+# src/AppBundle/Resources/config/doctrine/Category.orm.yml
+AppBundle\Entity\Category:
+  type: entity
+  table: category
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+      unique: true
+  oneToMany:
+    publications:
+      targetEntity: Publication
+      mappedBy: category
