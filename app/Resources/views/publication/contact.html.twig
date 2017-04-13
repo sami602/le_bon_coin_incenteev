@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Répondre à l'annonce {{ publication.title }} </h2>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('publication_show', { 'id': publication.id }) }}">Retour à l'annonce</a>
+        </li>
+
+    </ul>
+{% endblock %}

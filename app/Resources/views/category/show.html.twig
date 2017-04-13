@@ -17,7 +17,7 @@
                 {% for publication in category.publications %}
                     <tr>
                         <td>{% if publication.isanoffer %}Offre{% else %}Demande{% endif %}</td>
-                        <td><a href ="{{ path('localisation_show', {'id' : publication.localisation.id}) }}">{{ publication.localisation.city }}</a>a</td>
+                        <td><a href ="{{ path('localisation_show', {'id' : publication.localisation.id}) }}">{{ publication.localisation.city }}</a></td>
                         <td>
                             <a href="{{ path('publication_show', { 'id': publication.id }) }}">
                                 {{ publication.title }}
