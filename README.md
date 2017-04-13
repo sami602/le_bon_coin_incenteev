@@ -1,7 +1,7 @@
 le_bon_coin_incenteev
 =====================
 
-A Symfony project created on April 13, 2017, 5:26 pm(GMT).
+A Symfony project created on April 13, 2017, 5:26 pm(Heure de paris).
 # Le Bon Coin - Clone - Test technique pour Incenteev.
 Afin de réaliser ce test technique, j’ai sélectionné les scénarios à implémenter de sorte à pouvoir réaliser un MVP (Minimum Viable Product) du Bon coin. Vous trouverez en gras les scénarios prioritaires à implémenter. Le reste des scénarios sera implémenté si je réussi à trouver le temps nécéssaire.
 

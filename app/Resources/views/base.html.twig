@@ -19,10 +19,9 @@
     <a class="navbar-brand" href={{ path('app_homepage') }}>Le Bon Coin</a>
 
     <ul class="nav navbar-nav">
-        {% block homeLink %}    <li><a href="{{ path('publication_index') }}">Accueil</a></li> {% endblock %}
+        {% block homeLink %}    <li><a href="{{ path('app_homepage') }}">Accueil</a></li> {% endblock %}
+        {% block publicationLink %}    <li><a href="{{ path('publication_index') }}">Toutes les annonces</a></li> {% endblock %}
         {% block newAnnounceLink %}    <li><a href="{{ path('publication_new') }}">Déposer une annonce</a></li> {% endblock %}
-        {% block offerLink %}    <li><a href="#">Offres</a></li> {% endblock %}
-        {% block requestLink %}    <li><a href="#">Demandes</a></li> {% endblock %}
 
     </ul>
 
