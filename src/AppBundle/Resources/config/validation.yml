@@ -1,0 +1,20 @@
+# src/AppBundle/Resources/config/validation.yml
+
+AppBundle\Entity\Publication:
+    properties:
+    email:
+      - NotBlank: ~
+      - Email: ~
+    title:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+    price:
+      - NotBlank: ~
+    phone:
+      - Length:
+          min: 8
+          max: 20
+          minMessage: 'Votre numéro de téléphone doit contenir au minimum 8 chiffres'
+          maxMessage: 'Votre numéro de téléphone ne peut dépasser 20 chiffres'
+

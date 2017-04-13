@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h2>{{ publication.title }}</h2>
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th>Type</th>
+            <td>{% if publication.isanoffer %}Offre{% else %}Demande{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Catégorie</th>
+             <td><a href ="{{ path('category_show', {'id' : publication.category.id}) }}">{{ publication.category.name }}</a></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ publication.description }}</td>
+        </tr>
+        <tr>
+            <th>Ville</th>
+            <td><a href ="{{ path('localisation_show', {'id' : publication.localisation.id}) }}">{{ publication.localisation.city }}</a></td>
+        </tr>
+        <tr>
+            <th>Prix</th>
+            <td>{{ publication.price }}€</td>
+        </tr>
+        <tr>
+            <th> </th>
+            <td><a href ="{{ path('publication_contact', {'id' : publication.id}) }}">Répondre à l'annonce</a></td>
+        </tr>
+        {% if publication.phone %}
+            <tr>
+                <th>Phone</th>
+                <td>{{ publication.phone }}</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('publication_index') }}">Retour aux annonces</a>
+        </li>
+    </ul>
+</div>
+    {% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block publicationLink %}    <li class="active"><a href="{{ path('publication_index') }}">Toutes les annonces</a></li> {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div>
+            <h2> Les dernieres annonces publiés: </h2>
+            <table class="table table-striped">
+                <tbody>
+                {% for publication in publications %}
+                    <tr>
+                        <td><a href ="{{ path('localisation_show', {'id' : publication.localisation.id}) }}">{{ publication.localisation.city }}</a></td>
+                        <td><a href ="{{ path('category_show', {'id' : publication.category.id}) }}">{{ publication.category.name }}</td>
+                        <td>
+                            <a href="{{ path('publication_show', { 'id': publication.id }) }}">
+                                {{ publication.title }}
+                            </a>
+                        </td>
+                        <td>{{ publication.description }}</td>
+                        <td>{{ publication.price }}€</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
