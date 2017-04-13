@@ -7,7 +7,7 @@ Afin de réaliser ce test technique, j’ai sélectionné les scénarios à impl
 
 Je développerais donc les scénarios F1,F2,F3,F4 en priorité, puis B1, B2 , puis en fonction du temps qu'il me restera je considérerais les scénarios F5,F6,F7,F8,F9
 
-**Scénario F1: Un utilisateur peut afficher toutes les annonces actives d’une catégorie spécifique en filtrant par ville** 
+**Scénario F1: Un utilisateur peut afficher toutes les annonces actives d’une catégorie spécifique ou d'une ville spécifique** 
 
 **Scénario F2 : Un utilisateur clique sur une publication pour obtenir des informations plus détaillées**
 

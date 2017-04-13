@@ -1,0 +1,40 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {% block searchbar %}
+            {{ parent() }}
+        {% endblock %}
+        <div>
+            <h2> {{ category.name }}
+                {% if category.publications|length > 0 %}
+                - Les dernieres annonces publiés: </h2>
+            <table class="table table-striped">
+                <tbody>
+                {% for publication in category.publications %}
+                    <tr>
+                        <td>{% if publication.isanoffer %}Offre{% else %}Demande{% endif %}</td>
+                        <td>{{ publication.localisation.city }}</td>
+                        <td>
+                            <a href="{{ path('publication_show', { 'id': publication.id }) }}">
+                                {{ publication.title }}
+                            </a>
+                        </td>
+                        <td>{{ publication.description }}</td>
+                        <td>{{ publication.price }}€</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                </h2>
+                <h4> Bénéficiez d'une visibilité sans précédent en étant le premier à <a href ="{{ path('publication_new') }}">diffuser une annonce </a> pour la catégorie {{ category.name }} !</h4>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}

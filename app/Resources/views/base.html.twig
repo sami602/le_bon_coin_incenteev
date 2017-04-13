@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <title>
+        {% block title %}
+            Le bon coin - Clone pour Incenteev.
+        {% endblock %}
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" media="all" />
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+
+<nav class="navbar navbar-default bg-inverse fixed-top">
+
+    <a class="navbar-brand" href={{ path('app_homepage') }}>Le Bon Coin</a>
+
+    <ul class="nav navbar-nav">
+        {% block homeLink %}    <li><a href="{{ path('publication_index') }}">Accueil</a></li> {% endblock %}
+        {% block newAnnounceLink %}    <li><a href="{{ path('publication_new') }}">Déposer une annonce</a></li> {% endblock %}
+        {% block offerLink %}    <li><a href="#">Offres</a></li> {% endblock %}
+        {% block requestLink %}    <li><a href="#">Demandes</a></li> {% endblock %}
+
+    </ul>
+
+
+</nav>
+{% for type, flash_messages in app.session.flashBag.all %}
+    {% for flash_message in flash_messages %}
+        <div class="flash-{{ type }}">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+{% block body %}{% endblock %}
+{% block javascripts %}
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+{% endblock %}
+
+
+</body>
 </html>

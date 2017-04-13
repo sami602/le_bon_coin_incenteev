@@ -1,9 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-  test
-{% endblock %}
-
 {% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/ensjobeet/css/publication.css') }}" type="text/css" media="all" />
+{% endblock %}
+ {% block homeLink %}   <li class="active"><a href="{{ path('publication_index') }}">Accueil</a></li> {% endblock %}
+{% block body %}
+    <div class="container">
+        <h3>Trouvez la bonne affaire parmi <a href = "{{ path('publication_index')}}"> {{ publications|length }} petites annonces </a> sur leboncoin.</h3>
+        <div class = "row">
+            <div class="col-lg-4">
+                <h3>Choisissez une ville</h3>
+                <div class = "row">
+                    {% for localisation in localisations %}
+                        <div class = 'col-lg-4'>
+                            <a href={{ path('localisation_show', {'id' : localisation.id}) }}>{{ localisation.city }}</a>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-offset-1 col-lg-6">
+                <h3>Ou une catégorie</h3>
+                <div class = "row">
+                    {% for category in categories %}
+                        <div class = 'col-lg-4'>
+                            <a href={{ path('category_show',{ 'id': category.id }) }}>{{ category.name }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 {% endblock %}
