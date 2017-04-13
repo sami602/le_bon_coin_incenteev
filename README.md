@@ -1,7 +1,3 @@
-le_bon_coin_incenteev
-=====================
-
-A Symfony project created on April 13, 2017, 5:26 pm(Heure de paris).
 # Le Bon Coin - Clone - Test technique pour Incenteev.
 Afin de réaliser ce test technique, j’ai sélectionné les scénarios à implémenter de sorte à pouvoir réaliser un MVP (Minimum Viable Product) du Bon coin. Vous trouverez en gras les scénarios prioritaires à implémenter. Le reste des scénarios sera implémenté si je réussi à trouver le temps nécéssaire.
 
@@ -44,13 +40,52 @@ Scénario F9: un utilisateur peut créer un compte à la volée en créant son a
 
 
 
-**Scénario B1: Un administrateur peut modifier les catégories présentes sur le site.**
+**Scénario B1: Un administrateur peut rajouter ou modifier les catégories et les villes présentes sur le site.**
 
-**Scénario B2: Un administrateur peut modifier ou supprimer les offres.**
+**Scénario B2: Un administrateur peut modifier ou supprimer des annonces.**
 
 # Petite remarques sur le déroulement du test technique 
 
-**Erreur de débutant sur les commits de F1 à F4 :(**
+**Scénarios implémentés:**
+Les scénarios F1,F2,F3,F4,B1 et B2 ont été implémenté et tésté à travers le navigateur. Je n'ai malhereusement pas eu le temps d'écrire les tests unitaires et fonctionelles ni d'implémenter les scénarios non-prioritaires (mais essentiel quand même pour que la V1 soit complete)F5,F6,F7,F8 et F9 qui m'auraient demandé beaucoup trop de temps pour un projet factice. 
+
+**Erreur de débutant sur les commits de F1 à F4 :( (Désolé !!)**
+
 J'ai fait une grave erreur lors de mes commits, plutot que de faire comme j'avais l'habitude : "git add ." puis "git commit -m message"
 Je ne faisais que des "git commit -a -m message" en pensant que le -a permettait de rajouter toutes les modifications (y compris celles des nouveaux fichiers créés), j'ai eu le malheur de découvrir après avoir fini d'implémenter F4 qu'en fait le -a ne prenait en compte que les modifications des fichiers déjà existants dans le dépot git... Désolé pour cette erreur de débutant, cela ne se reproduira plus. A partir de B1 les commits sont réguliers.
+ 
+ **Pause diner après l'implémentation de F4**"
+
+Afin de me consoler suite à l'énorme erreur que j'ai commise par rapport aux commits, je me suis accordé une pause diner après l'implémentation de F4, le temps d'implémentation de B1 et B2 a été fait assez rapidement (20-30 minutes) grace au bundle EasyAdminBundle que j'ai découvert grace à ce test.
+
+**DataFixtures**
+
+Des données initiales ont été préparés dans les data-fixtures pour le chargement de quelques annonces factices, villes et catégories:
+<code>
+php app/console doctrine:fixtures:load
+</code>
+
+**Back-end admin**
+L'interface d'administration est accesssible à l'adresse : 
+<code>
+localhost:8000/admin, 
+nom d'utilisateur: admin 
+mot-de-passe: admin.
+</code>
+
+**Base de donnée en PostGreSQL**
+La base de donnée étant en postgreSql assurez vous donc d'avoir le driver "pdo_pgsql" installé sur votre machine pour le test de l'App ou de changer la configuration de la base de donnée (config.yml et parameters.yml).
+(Le choix de PostGreSQL n'a été fait au hazard mais a été basé sur le site original du bon coin qui avait fait migré sa base de donnée de MySql vers Postgresql http://www.postgresqlfr.org/temoignages/le_bon_coin , même si , au final , pour la taille du projet et comme j'utilise doctrine, je suis conscient que cela ne change grand rien pour le cadre de ce test technique),
+
+
+**Explication des variables non-utilisées dans le modele de l'entité "Publication"**
+
+Dans le modele de l'entité "Publication" vous pourrez trouver :
+
+- la variable token(string) , qui est généré à partir de l'adresse email de l'utilisateur et qui aurait servi à générer des liens d'edition et de supression d'annonces que l'utilisateur aurait pu recevoir par email afin qu'il puisse modifier ou supprimer ses annonces sans qu'il ait besoin d'avoir un compte sur la plateforme.(Ce qui est pratique quand on a pas encore de base de donnée d'utilisateur déjà prête sur la plateforme) Cette fonctionnalité n'a pas été implémentée mais aurait pu l'être très simplement et rapidement en remplaçant "id" par "token" dans les routes de publication_edit et publication_delete et en modifiant legerement les methodes edit et delete dans le controlleur de Publication.
+- les variables created_at, updated_at qui nous permettent de garder une trace de l'action de l'utilisateur sur ses annonces et la variable expires_at , qui nous permet de ne garder active une annonce que pendant 30 jours, la variable est bien définie mais la fonctionnalité de désactiver les annonces après 30 jours n'a pas été implémentée car elle n'était pas prioritaire.
+- la variable is_public(boolean) qui aurait pu permettre à l'utilisateur de creer une prévisualisation de l'annonce avant de la rendre public
+- la variable is_active(boolean) qui aurait pu permettre à l'administrateur de vérifier les annonces postés par les utilisateurs et de les activer avant leur publication sur la plateforme.
+
+Toutes ces variables représentent donc des fonctionnalités qui existent dans le reel site du bon coin, mais qui n'était pas prioritaires à implémenter. J'ai toutefois décider de les intégrer dès le début dans le modéle afin que le développement de ces fonctionnalités soit facilité dans l'hypothétique futur.
 
