@@ -481,4 +481,13 @@ class Publication
     {
         $this->updated_at = new \DateTime();
     }
+    /**
+     * To string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

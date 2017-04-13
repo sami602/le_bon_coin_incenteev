@@ -63,3 +63,19 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+#EasyAdminBundle Config
+easy_admin:
+    site_name: 'Le bon coin'
+    entities:
+        Publication:
+            class: AppBundle\Entity\Publication
+            list:
+                fields: ['id','is_an_offer','title','description','price','email','phone','expires_at','created_at','updated_at']
+        Category:
+           class: AppBundle\Entity\Category
+           list:
+                fields: ['id','name']
+        Localisation:
+            class: AppBundle\Entity\Localisation
+            list:
+                fields: ['id','city']

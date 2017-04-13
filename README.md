@@ -48,3 +48,9 @@ Scénario F9: un utilisateur peut créer un compte à la volée en créant son a
 
 **Scénario B2: Un administrateur peut modifier ou supprimer les offres.**
 
+# Petite remarques sur le déroulement du test technique 
+
+**Erreur de débutant sur les commits de F1 à F4 :(**
+J'ai fait une grave erreur lors de mes commits, plutot que de faire comme j'avais l'habitude : "git add ." puis "git commit -m message"
+Je ne faisais que des "git commit -a -m message" en pensant que le -a permettait de rajouter toutes les modifications (y compris celles des nouveaux fichiers créés), j'ai eu le malheur de découvrir après avoir fini d'implémenter F4 qu'en fait le -a ne prenait en compte que les modifications des fichiers déjà existants dans le dépot git... Désolé pour cette erreur de débutant, cela ne se reproduira plus. A partir de B1 les commits sont réguliers.
+
