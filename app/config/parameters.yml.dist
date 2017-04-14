@@ -5,8 +5,8 @@ parameters:
     database_host: localhost
     database_port: 5432
     database_name: leboncoin_incenteev
-    database_user: YourSuperUserName
-    database_password: YourSuperPassWord
+    database_user: YourPgsqlUserName
+    database_password: YourPgsqlPassWord
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: "%kernel.root_dir%/data.db3"
 

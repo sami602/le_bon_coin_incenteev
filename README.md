@@ -119,9 +119,10 @@ Toutes ces variables représentent donc des fonctionnalités qui existent dans l
 6. Run <code>
        php app/console doctrine:fixtures:load
        </code>
+7. Run <code> php app/console assets:install --symlink </code>
 7. Run <code> php app/console server:run </code>
 
-You're good. If you encounter any problem, don't hesitate to contact me 
+You're good to go! You can access the user interface at http://localhost:8000/ and the admin interface at http://localhost:8000/admin (user: admin, password: admin) If you encounter any problem or bug, don't hesitate to contact me 
 (Email : saminsa602@gmail.com or Skype: sami6023 )
   
   
