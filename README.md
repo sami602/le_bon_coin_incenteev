@@ -75,7 +75,7 @@ mot-de-passe: admin.
 
 **Base de donnée en PostGreSQL**
 La base de donnée étant en postgreSql assurez vous donc d'avoir le driver "pdo_pgsql" installé sur votre machine pour le test de l'App ou de changer la configuration de la base de donnée (config.yml et parameters.yml).
-(Le choix de PostGreSQL n'a pas été fait au hazard mais a été basé sur le site original du bon coin qui avait fait migré sa base de donnée de MySql vers Postgresql http://www.postgresqlfr.org/temoignages/le_bon_coin , même si , au final , pour la taille du projet et comme j'utilise doctrine, je suis conscient que cela ne change grand rien pour le cadre de ce test technique),
+(Le choix de PostGreSQL n'a pas été fait au hazard mais a été basé sur le site original du bon coin qui avait fait migré sa base de donnée de MySql vers Postgresql http://www.postgresqlfr.org/temoignages/le_bon_coin , même si , au final , pour la taille du projet et comme j'utilise doctrine, je suis conscient que cela ne change rien dans le cadre de ce test technique),
 
 
 **Explication des variables non-utilisées dans le modele de l'entité "Publication"**
