@@ -75,7 +75,7 @@ mot-de-passe: admin.
 
 **Base de donnée en PostGreSQL**
 La base de donnée étant en postgreSql assurez vous donc d'avoir le driver "pdo_pgsql" installé sur votre machine pour le test de l'App ou de changer la configuration de la base de donnée (config.yml et parameters.yml).
-(Le choix de PostGreSQL n'a été fait au hazard mais a été basé sur le site original du bon coin qui avait fait migré sa base de donnée de MySql vers Postgresql http://www.postgresqlfr.org/temoignages/le_bon_coin , même si , au final , pour la taille du projet et comme j'utilise doctrine, je suis conscient que cela ne change grand rien pour le cadre de ce test technique),
+(Le choix de PostGreSQL n'a pas été fait au hazard mais a été basé sur le site original du bon coin qui avait fait migré sa base de donnée de MySql vers Postgresql http://www.postgresqlfr.org/temoignages/le_bon_coin , même si , au final , pour la taille du projet et comme j'utilise doctrine, je suis conscient que cela ne change grand rien pour le cadre de ce test technique),
 
 
 **Explication des variables non-utilisées dans le modele de l'entité "Publication"**
@@ -115,12 +115,10 @@ Toutes ces variables représentent donc des fonctionnalités qui existent dans l
 (at this point you may have encountered this error : " [Doctrine\DBAL\Driver\PDOException] SQLSTATE[08006] [7] FATAL:  database "leboncoin_incenteev" does not exist" but don't worry it's going to be fixed after the next step if you have entered the good database parameters and have pdo_pgsql et PostgreSQL working)
   
 4. Run <code> php app/console doctrine:database:create </code>
-5. Run <code> php app/console doctrine:schema:update --force
-6. Run <code>
-       php app/console doctrine:fixtures:load
-       </code>
+5. Run <code> php app/console doctrine:schema:update --force </code>
+6. Run <code>php app/console doctrine:fixtures:load</code>
 7. Run <code> php app/console assets:install --symlink </code>
-7. Run <code> php app/console server:run </code>
+8. Run <code> php app/console server:run </code>
 
 You're good to go! You can access the user interface at http://localhost:8000/ and the admin interface at http://localhost:8000/admin (user: admin, password: admin) If you encounter any problem or bug, don't hesitate to contact me 
 (Email : saminsa602@gmail.com or Skype: sami6023 )
