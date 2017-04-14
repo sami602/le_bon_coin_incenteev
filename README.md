@@ -89,3 +89,42 @@ Dans le modele de l'entité "Publication" vous pourrez trouver :
 
 Toutes ces variables représentent donc des fonctionnalités qui existent dans le reel site du bon coin, mais qui n'était pas prioritaires à implémenter. J'ai toutefois décider de les intégrer dès le début dans le modéle afin que le développement de ces fonctionnalités soit facilité dans l'hypothétique futur.
 
+# How to install
+
+**Requirements** : pdo_pgsql  and PostgreSQL 
+
+(If it's the first time you use postgresql, you may want to create a super user first: https://chartio.com/resources/tutorials/how-to-change-a-user-to-superuser-in-postgresql/)
+
+(Otherwhise you could modify the file config.yml file replacing "pdo_pgsql" by "pdo_mysql")
+
+1. Run <code> Composer install </code>
+2. For a pgsql config enter for the variables of the file "parameter.yml" the following:
+  -  database_host:     localhost
+  -  database_name:     leboncoin_incenteev
+  -  database_user:      (the username of your superuser of postgresql  )
+  -  database_password: (password of the superuser)
+  -  database_port: 5432 (default port of postgresql)
+  
+  
+  3. Configure the mailer with the following:
+  - mailer_transport: gmail
+  - mailer_user: leboncoinclone@gmail.com
+  - mailer_password: leboncoin602
+  - mailer_host: 127.0.0.1 (this variable is not used in the config)
+
+(at this point you may have encountered this error : " [Doctrine\DBAL\Driver\PDOException] SQLSTATE[08006] [7] FATAL:  database "leboncoin_incenteev" does not exist" but don't worry it's going to be fixed after the next step if you have entered the good database parameters and have pdo_pgsql et PostgreSQL working)
+  
+4. Run <code> php app/console doctrine:database:create </code>
+5. Run <code> php app/console doctrine:schema:update --force
+6. Run <code>
+       php app/console doctrine:fixtures:load
+       </code>
+7. Run <code> php app/console server:run </code>
+
+You're good. If you encounter any problem, don't hesitate to contact me 
+(Email : saminsa602@gmail.com or Skype: sami6023 )
+  
+  
+    
+
+
