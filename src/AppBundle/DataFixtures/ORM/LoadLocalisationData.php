@@ -22,9 +22,21 @@ class LoadLocalisationData extends AbstractFixture implements OrderedFixtureInte
         $paris = new Localisation();
         $paris->setCity('Paris');
 
+        $lyon = new Localisation();
+        $lyon->setCity('Lyon');
+
+        $montpellier = new Localisation();
+        $montpellier->setCity('Montpellier');
+
+        $cannes = new Localisation();
+        $cannes->setCity('Cannes');
+
 
         $em->persist($paris);
         $em->persist($rennes);
+        $em->persist($lyon);
+        $em->persist($montpellier);
+        $em->persist($cannes);
 
 
         $em->flush();

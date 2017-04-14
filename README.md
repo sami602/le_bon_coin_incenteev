@@ -47,7 +47,7 @@ Scénario F9: un utilisateur peut créer un compte à la volée en créant son a
 # Petite remarques sur le déroulement du test technique 
 
 **Scénarios implémentés:**
-Les scénarios F1,F2,F3,F4,B1 et B2 ont été implémenté et tésté à travers le navigateur. Je n'ai malhereusement pas eu le temps d'écrire les tests unitaires et fonctionelles ni d'implémenter les scénarios non-prioritaires (mais essentiel quand même pour que la V1 soit complete)F5,F6,F7,F8 et F9 qui m'auraient demandé beaucoup trop de temps pour un projet factice. 
+Les scénarios F1,F2,F3,F4,B1 et B2 ont été implémenté et tésté à travers le navigateur. Je n'ai malhereusement pas eu le temps d'écrire les tests unitaires et fonctionelles ni d'implémenter les scénarios non-prioritaires (mais essentiel quand même pour que la V1 soit complete)F5,F6,F7,F8 et F9 qui m'auraient demandé beaucoup trop de temps pour un projet factice.
 
 **Erreur de débutant sur les commits de F1 à F4 :( (Désolé !!)**
 
